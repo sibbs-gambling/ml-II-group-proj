@@ -1,0 +1,1690 @@
+See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/45854612
+
+Analysis of a network structure of the foreign
+currency exchange market
+Article in Journal of Economic Interaction and Coordination · June 2009
+DOI: 10.1007/s11403-009-0047-9 · Source: arXiv
+
+CITATIONS
+
+READS
+
+38
+
+124
+
+4 authors, including:
+Jarosław Kwapień
+
+Stanislaw Drozdz
+
+Institute of Nuclear Physics
+
+Institute of Nuclear Physics and Cracow Univer…
+
+53 PUBLICATIONS 1,465 CITATIONS
+
+144 PUBLICATIONS 2,496 CITATIONS
+
+SEE PROFILE
+
+SEE PROFILE
+
+Some of the authors of this publication are also working on these related projects:
+
+Fluctuation Properties View project
+
+All content following this page was uploaded by Stanislaw Drozdz on 03 June 2014.
+The user has requested enhancement of the downloaded file.
+
+Noname manuscript No.
+(will be inserted by the editor)
+
+Analysis of a network structure of the foreign currency
+exchange market
+
+arXiv:0906.0480v1 [q-fin.ST] 2 Jun 2009
+
+Jaroslaw Kwapień · Sylwia Gworek ·
+Stanislaw Drożdż · Andrzej Górski
+
+Received: date / Accepted: date
+
+Abstract We analyze structure of the world foreign currency exchange (FX) market
+viewed as a network of interacting currencies. We analyze daily time series of FX data
+for a set of 63 currencies, including gold, silver and platinum. We group together all
+the exchange rates with a common base currency and study each group separately.
+By applying the methods of filtered correlation matrix we identify clusters of closely
+related currencies. The clusters are formed typically according to the economical and
+geographical factors. We also study topology of weighted minimal spanning trees for
+different network representations (i.e., for different base currencies) and find that in
+a majority of representations the network has a hierarchical scale-free structure. In
+addition, we analyze the temporal evolution of the network and detect that its structure
+is not stable over time. A medium-term trend can be identified which affects the USD
+node by decreasing its centrality. Our analysis shows also an increasing role of euro in
+the world’s currency market.
+Keywords Foreign exchange market · Correlation matrix · Networks · Minimal
+Spanning Tree
+
+S. Drożdż
+Institute of Nuclear Physics, Polish Academy of Sciences, ul. Radzikowskiego 152, 31-342
+Kraków, Poland
+Institute of Physics, University of Rzeszów, ul. Rejtana 16A, 35-959 Rzeszów, Poland
+Andrzej Górski
+Institute of Nuclear Physics, Polish Academy of Sciences, ul. Radzikowskiego 152, 31-342
+Kraków, Poland
+Sylwia Gworek
+Institute of Nuclear Physics, Polish Academy of Sciences, ul. Radzikowskiego 152, 31-342
+Kraków, Poland
+Jaroslaw Kwapień
+Institute of Nuclear Physics, Polish Academy of Sciences, ul. Radzikowskiego 152, 31-342
+Kraków, Poland
+
+2
+
+1 Introduction
+There are at least two reasons for analyzing the global foreign exchange (FX) market. First, this is the world’s largest and most important financial market, completely
+decentralized, extending over all the countries, with the highest daily trading volume
+reaching trillions of US dollars. Second, the FX market’s dynamics seems to be more
+complex than any other market’s. The absence of an independent reference frame makes
+the absolute currency pricing difficult or even impossible: one has to express a given
+currency’s value by means of some other currency which, in turn, is also denominated
+only in currencies. Moreover, apart from its internal dynamics, the global nature of
+the FX market implies sensitivity to current situation on other markets in all parts
+of the world. These properties together with the triangle rule [1] which links mutual
+exchange rates of three currencies are among the factors responsible for a highly correlated structure of Forex.
+Correlations allow one to view the FX market’s structure as a network of interacting
+exchange rates. In this case the exchange rates are treated as network nodes and
+are linked with their neighbours via edges with weights proportional to the coupling
+strength. And although the exact nature of these interactions remains unexplained,
+it is justified to assume that they are strongly nonlinear. This indicates that the FX
+market may actually constitute a complex network.
+An analysis of the currency exchange network can provide us with knowledge of the
+structure of the market and about a role played in it by each particular currency. We
+put stress on quantification of a currency’s importance in the world financial system
+and on tracking its subtle changes as the market evolves in time. We achieve this by
+employing the well-known methods of correlation matrix (CM) and minimal spanning
+trees (MST). However, one has to be aware that both these methods, although simple
+and effective, are linear and thus they detect only a part of interactions between the
+exchange rates; nonlinear contributions to the internode couplings are neglected.
+An exchange rate assigns value to a currency X by expressing it in terms of a
+base currency B. In general, each currency can be a base for all other ones. Since
+different currencies may have different internal dynamics related to domestic economy,
+inflation, and sensitivity to events in other countries and markets, behaviour of the
+exchange rates is strongly dependent on a particular choice of the base. What follows,
+there is no absolute correlation structure of the FX network; its structure depends
+largely on the base currency.
+
+2 Methodology and Results
+2.1 Data and nomenclature
+We analyze daily data [2] for a 63-element set comprising 60 actual currencies and 3
+precious metals: gold, silver, and platinum. We consider the inclusion of these metals
+in our analysis as justified due to the two following reasons: First, gold and other
+precious metals are historically closely related to the currency system (silver and gold
+coins, the gold standard etc.). Even if at present there is no explicit relation between
+the official monetary system and the precious metals, they are still perceived by many
+as a convenient alternative to real currencies in times of high inflation or deep crises.
+Second, we prefer to include the precious metals also because they, if treated as a
+
+3
+
+reference frame, can allow us to look at the actual currency market from outside. In
+this context the precious metals can serve as a benchmark of being decoupled from the
+market.
+For denoting the currencies we adopted the ISO 4217 standard using three-letter
+codes (CHF, GBP, USD etc.). Our data spans the time period of 9.5 years from 1
+B
+January 1999 to 30 June 2008. At a time instant t, the exchange rate B/X is RX
+(t). We
+B
+conventionally define the exchange rate returns GX (t, ∆t) as the logarithmic exchange
+rate increments over an interval ∆t = 1 day. From our basket of N = 63 currencies
+B
+we obtained N (N − 1) = 3906 time series GB
+X = {GA (ti )}i=1,...,T of length T = 2394.
+All time series were preprocessed in order to eliminate artifacts and too extreme data
+points that can misleadingly dominate the outcomes; no points that deviate more than
+10 standard deviations from the mean were allowed. Owing to a high quality of data,
+only a few data points in total were modified accordingly.
+Dealing with all the available exchange rates for 63 currencies simultaneously would
+be rather inefficient due to information overload and would lead to results whose interpreting might be cumbersome. Attempts in this direction can be found elsewhere - for
+example, in ref. [3]; we prefer here a more selective approach. An indirect but useful
+way to get some insight into properties of an individual currency, if only a set of its
+exchange rates is available, is to single out those rates in which this currency serves
+as a base currency and apply a statistical approach to the data. By selecting the base
+currency one associates a reference frame with this currency. Thus, the evolution of all
+other currencies expressed by relevant exchange rates is the evolution in the frame in
+which the base currency “rests”. In this context, a statistical analysis of the exchange
+rates offers information on how the global FX market looks like from the perspective
+of the base currency or, conversely, how the base currency behaves in relation to the
+global market.
+
+2.2 Correlation matrix formalism
+Details of the basic correlation matrix formalism are as follows. For a set of exchange
+rates sharing the same base B we calculate an N × N correlation matrix CB :
+CB =
+
+1 B B
+M M̄ ,
+T
+
+(1)
+
+where M is N × T data matrix and the bar denotes matrix transpose. Each entry
+B
+CX,Y
+is the correlation coefficient calculated for a pair of the exchange rates B/X and
+B/Y. If the exchange rates are considered as network nodes, the correlation matrix is
+equivalent to the weights matrix collecting the weights of links between the nodes. The
+so-defined correlation matrix is a starting point for our further calculations.
+The market global correlation structure, as it is viewed from B, can be described
+by the eigenspectrum of CB . Complete set of the corresponding eigenvectors viB and
+eigenvalues λB
+i (i = 1, ..., N − 1) can be obtained by solving the equation
+B
+CB viB = λB
+i vi .
+
+(2)
+
+For a stock market it is typical that the associated correlation matrix can be decomposed into three components:
+B
+B
+CB = CB
+m + Cs + Cr .
+
+(3)
+
+4
+
+Fig. 1 Eigenvalue spectra of correlation matrices calculated for a few exemplary choices of
+base currency. Note diﬀerent gaps between the largest and the second largest eigenvalues in
+each case. Shaded region corresponds to the Wishart ensemble of random matrices.
+
+The first component CB
+m describes a collective (market) mode characterizing the average behaviour of the whole market. CB
+s describes the sectored structure of the market
+B
+and CB
+r expresses independent behaviour of individual stocks. On a matrix level, Cm
+has all its entries equal and its rank is 1, while CB
+is
+a
+random
+matrix
+drawn
+from
+r
+the Wishart ensemble. The middle term in Eq. (3) is a matrix with a typical rank
+1 ≤ R ≤ 10 which contains the most interesting information on the stock market
+structure [4, 5, 6].
+
+2.3 Eigenspectra of CM for different base currencies
+Taking outcomes of some earlier works [3, 7, 8, 9] into consideration we are justified to
+assume that also the FX market possesses similar correlation structure which can be
+decomposed into the analogous three levels of currency dependencies. To inspect this,
+we calculate the CMs and derived their eigenvalue spectra for all 63 base currencies.
+In each case the same scheme is reproduced: there is a collective mode represented
+B
+B
+B
+B
+by the largest eigenvalue λB
+1 with λ1 ≫ λ2 . Size of the gap between λ1 and λ2 is
+B-dependent. A few examples can be seen in Figure 1.
+Magnitude of λB
+1 expresses how many exchange rates are correlated among themselves, i.e. how collective is the market. Properties of the matrix trace impose bounds
+B
+on the magnitude of the largest eigenvalue: 1 ≤ λB
+1 ≤ Tr(C ) = N − 1. In our case the
+
+5
+B
+range of the actual variability of λB
+1 is narrower: 12.29 ≤ λ1 ≤ 55.0 with the extrema
+reached for HKD and GHS, respectively. Figure 2 displays the corresponding λB
+1 for
+each B analyzed. The whole set of currencies has been divided there into four baskets
+with respect to liquidity of each currency. The most important and liquid currencies
+belong to Basket 1 and other liquid ones to Basket 2.
+A straightforward interpretation of λB
+1 points out to the fact that the larger it is,
+the more coupled is behaviour of the underlying exchange rate sets. That is, for large
+λB
+1 comparable with N − 1, the global FX market evolves collectively in the reference
+frame of B. This actually means that the evolution of B is significantly decoupled and
+has its own independent dynamics not related to the global market. In such a case the
+influence of this currency on other currencies is marginal if at all. What is natural, the
+precious metals (XAG, XAU, XPT) as commodities qualify here, but, surprisingly, the
+same is true for a few actual currencies (e.g. GHS, DZD, ZAR, BRL). Reasons for this
+type of behaviour may comprise high inflation rate in the corresponding countries or
+a strong regulation of the market by local financial authorities (Basket 4). It is worth
+noting that no Basket 1 currency belongs to this group.
+On the opposite pole (relatively small λB
+1 ) there is the US dollar and a few other
+currencies from different baskets (CNY, HKD, SGD etc.) In general, small values of λ1
+are developed by the systems which do not display strong couplings among its elements.
+Hence, evolution of the exchange rates seen from the USD perspective must be rather
+decorrelated and many currencies enjoy large amounts of independence. Such a degree
+of independence is not observed for any other liquid, market-valued base currencies
+from Basket 1. Thus, by changing the base from one of those currencies to USD, many
+explicit satellites of USD and its more delicately related companions acquire a dose of
+freedom. This phenomenon is a manifestation of the leading role of USD in the global
+foreign exchange system.
+A careful investigation of Figure 2 suggests that healthy, freely convertible currencies generally are associated with λB
+1 < 40.
+Going back to Figure 1, it is evident from the eigenspectra that the FX market
+might have a finer sectored structure similarly to the stock and the commodity markets [10]. For most base currencies, apart from λB
+1 there are smaller eigenvalues which
+also do not coincide with the spectrum predicted for the Wishart matrix ensemble by
+the random matrix theory [11] (see the shaded region in Figure 1). A possible way to
+extract information on a more subtle structure of the FX market would be removing
+B
+the market component CB
+m from the matrix C , since it absorbs a significant fraction
+of the total variance of signals and suppresses other components. However, we prefer
+here an alternative approach, based on direct removing of specific exchange rates.
+It is well known that due to strength of the associated economies and the investors
+confidence, the US dollar and euro are the most influential currencies. Their significant
+impact on other currencies is manifested in the network representation of the FX
+market by a key positions of the nodes representing the exchange rates involving at
+least one of these currencies [7, 8, 12]. For all choices of B, satellite currencies of either
+USD or EUR have their exchange rates strongly correlated with B/USD or B/EUR.
+This implies that, from a point of view of a given base currency, the collective behaviour
+of the market expressed, e.g., in terms of the repelled λB
+1 is, at least in part, an effect
+of these correlations. In order to get more insight into subtle dependencies among the
+exchange rates, now masked by the USD- and EUR-induced correlations, these two
+groups of couplings have to be removed. This can be accomplished by subtracting
+the USD- and EUR-related components from each original signal B/X by least square
+
+6
+
+Fig. 2 The largest eigenvalue λB
+1 for diﬀerent base currencies. All 63 currencies are distributed
+among 4 baskets deﬁned by a currency’s liquidity and its freedom of trading. Basket 1 contains
+the most liquid, freely convertible currencies, while Basket 4 contains only fully regulated
+and/or non-convertible ones.
+
+B
+fitting GB
+Y (t) to GX (t) (Y denotes either USD or EUR):
+B
+B
+GB
+X (t) = aGY (t) + b + ǫX (t),
+
+i = 1, ..., N − 1.
+
+(4)
+
+The residual component ǫB
+X (t) is just the exchange rate (B/X)’ linearly independent of
+B/Y.
+For a given B, we apply the above procedure to each exchange rate B/X twice:
+first for Y=USD, then for Y=EUR. Of course, if B=USD or B=EUR, Eq.(4) is applied
+only once, since the cases of the EUR/EUR and USD/USD rates are trivial. The
+′
+correlation matrix C B constructed from the signals ǫB
+X (t) can again be diagonalized
+and its eigenspectrum can be calculated. Figure 3 shows the so-modified eigenspectra
+for the same base currencies as in Figure 1. Clearly, now there is no collective market
+mode for USD, EUR, GBP and CHF. This means that, for this group of base currencies,
+the entire collectivity of the market, as seen in the corresponding values of λB
+1 in Figure
+2, stems from the couplings between USD and its satellites and between EUR and its
+satellites. No other factor contributes here. The eigenspectra with some eigenvalues
+which still do not fit into the predicted range for the random matrices do not show any
+considerable differences between different base currencies. This observation, however, is
+not valid for JPY, XAU and GHS (Figure 3). Here the largest eigenvalue deviates more
+
+7
+
+Fig. 3 Eigenvalue spectra of correlation matrices CB after removing contributions from
+B/USD and B/EUR cross-rates. The spectra for the same base currencies as in Figure 1
+are shown. Shaded region corresponds to the Wishart ensemble of random matrices.
+
+from the rest of the spectrum, although not so strongly as in Figure 1. This residual
+collective behaviour can be explained by the existence of a significantly populated
+cluster of currencies which survived the process of removing the B/USD and B/EUR.
+
+2.4 Cluster structure of the FX market
+The residual correlations which develop the non-random structure of the CM eigenspectra in Figure 3 lead to the existence of currency clusters which previously were
+masked by the dominating nodes of USD and EUR. Identification of these clusters can
+be carried out with help of a simple method of discriminating threshold applied to CM
+entries [6]. The procedure is as follows: we stepwise change the threshold p from its
+maximal value p = 1 down to 0 or even below 0. For each value of p we preserve only
+′
+B
+those matrix entries that obey the inequality CX,Z
+> p and substitute zeros otherwise.
+Then we count the clusters of at least two exchange rates. We define clusters as the
+disjoint sets of all residual exchange rates (B/X)’ that are linked by a non-zero matrix
+entries to at least one cross-rate (B/Z)’, Z6=X.
+Obviously, for p = 1 there is no cluster and for sufficiently small p there is exactly
+one cluster comprising all N −1 exchange rates. On the other hand, for the intermediate
+values of p the number of clusters varies and may exceed 1. In order to identify the
+finest possible cluster structure of the market and to identify the exchange rates that
+
+8
+
+CAD
+
+BHD
+
+CLP
+
+SGD
+
+HUF
+
+BHD
+
+JPY
+
+JOD
+
+CAD
+
+CLP
+
+JOD
+
+AED
+
+NZD
+
+AUD
+
+BRL
+
+KRW
+
+AED
+
+CHF
+
+KWD
+
+AUD
+
+BRL
+
+PLN
+
+CZK
+
+KWD
+MXN
+
+SAR
+
+TWD
+
+THB
+
+NZD
+
+SAR
+
+ZAR
+
+HUF
+
+MXN
+SKK
+
+SGD
+
+XAU
+
+XAU
+
+KRW
+
+PLN
+
+CZK
+
+SEK
+
+NOK
+
+JPY
+
+XAG
+
+TND
+
+MAD
+
+SEK
+
+NOK
+
+XAG
+
+base: EUR
+TWD
+
+USD removed
+
+base: GBP
+
+XPT
+
+XPT
+
+THB
+
+SKK
+
+USD, EUR removed
+
+CAD
+
+BHD
+
+HUF
+
+BHD
+
+CNY
+
+JOD
+
+MAD
+
+CAD
+
+GBP
+DKK
+
+NOK
+
+JOD
+
+CZK
+SEK
+AED
+
+NZD
+
+AUD
+
+BRL
+
+PLN
+
+AED
+
+DKK
+
+AUD
+
+CHF
+
+MXN
+
+CLP
+
+SKK
+XAF
+KWD
+
+KWD
+MXN
+
+SAR
+
+ZAR
+
+PLN
+
+NZD
+
+SAR
+
+SKK
+
+SGD
+
+MAD
+
+TND
+
+XAU
+
+CYP
+
+HUF
+
+XAU
+
+KRW
+
+JPY
+
+DZD
+
+SEK
+
+NOK
+
+XAG
+
+TWD
+
+KRW
+
+base: JPY
+
+XAG
+
+USD, EUR removed
+TWD
+TND
+
+XPT
+
+base: CHF
+
+THB
+
+XPT
+
+USD, EUR removed
+
+BHD
+
+GBP
+
+DKK
+
+BHD
+
+GBP
+
+DKK
+
+CZK
+
+CZK
+
+HUF
+
+JOD
+
+HUF
+
+JOD
+CYP
+
+CYP
+
+MAD
+AED
+
+NZD
+
+MAD
+
+AUD
+
+CHF
+
+SGD
+
+AED
+
+JPY
+
+NZD
+
+AUD
+
+NOK
+
+CHF
+
+PLN
+KWD
+
+XAG
+
+PLN
+KWD
+
+SEK
+
+SEK
+
+XAF
+SKK
+
+SAR
+
+XAU
+
+NOK
+
+TND
+
+XAF
+SKK
+
+SAR
+
+TND
+
+base: GHS
+base: XAU
+
+USD, EUR removed
+
+USD, EUR removed
+
+Fig. 4 Clusters of currencies identiﬁed in the network of exchange rates B/X for six exemplary
+choices of the base currency B, after removing contributions of the B/USD and B/EUR crossrates. Speciﬁc colors denote clusters associated with diﬀerent geographical regions. Note that
+cluster schemes do not show all links between the nodes.
+
+form each cluster, we fix the threshold at p = pc for which the number of clusters is
+stable and close to a maximum.
+Figure 4 shows the clusters that have been found for the same six base currencies
+as in Figures 1 and 3 (in all Figures we label nodes, i.e., the exchange rates B/X, only
+with the term currency X, dropping the base B, since B is common to all exchange
+rates in a particular network representation). The cluster structure of the FX network
+is considerably stable. There are clusters, like the Middle East cluster AED-BHD-JOD-
+
+9
+
+KWD-SAR and the commodity-trade-related cluster AUD-NZD-(CAD)-(ZAR), which
+are present in all network representations, there are also ones which can be found only
+in some representations (e.g. the Central European cluster CZK-HUF-PLN-SKK, the
+Scandinavian cluster NOK-SEK, and the precious metals cluster XAG-XAU-XPT).
+In general, among the analyzed network representations there are two dominating
+patterns of the cluster structure: the first one for CHF, EUR, GBP and USD, and the
+second one for JPY, XAU and GHS. This overlaps with the two different patterns of
+the eigenvalue spectra shown in Figure 3. Our results show that the currencies group
+together primarily according to geographical factors, but sometimes also according to
+other factors like, for example, the commodity trade.
+
+2.5 Minimal spanning tree
+A useful tool in analysis of the structure of a network is the minimal spanning tree
+method (MST), which allows one to describe and show the most important features
+of the network structure graphically in a compact form. For example, the B-based
+currency network is a fully connected undirected network with N − 1 nodes and (N −
+1)(N − 2)/2 connections; the minimal spanning tree graph in this case has the same
+number of nodes but only N − 2 connections.
+The method is based on a metric dB
+X,Y defined on the entries of the correlation
+matrix by the formula:
+q
+dB
+X,Y =
+
+B ).
+2(1 − CX,Y
+
+(5)
+
+In our case this quantity measures the distance between two exchange rates B/X and
+B/Y. For completely correlated signals dB
+X,Y = 0 and for completely anticorrelated ones
+B
+dX,Y = 2. MST is then constructed by sorting the list of distances calculated for all
+pairs (X,Y) and by connecting the closest nodes with respect to dB
+X,Y in such a manner
+that each pair of nodes is connected exactly via one path. Each edge represents a link
+between this node and its closest neighbour. Detailed instructions can be found e.g.
+in [13]. MST assigns to each node a measure of its importance in a hierarchy of nodes:
+a node is more significant if it has a higher degree K, i.e. has more edges attached to
+it or, in a case of weighted networks, has edges with high weights.
+The complete minimal spanning tree for the GBP-based network is plotted in Figure 5(a). This choice of B allows us to observe the most complete cluster structure
+(see Figure 4(b)). In agreement with our remark from the previous section, the most
+important node is the node related to USD with a degree K = 17 (it is directly linked
+to 28% of nodes). Other important nodes are HKD (K = 6), SGD and EUR (K = 5),
+as well as BHD, AUD, DKK and MYR (K = 4). Some edges are particularly strong
+(heavy lines in Figure 5) which typically indicates that one of the associated currencies is artificially pegged to the other. This is the case, for instance, of DKK-EUR,
+HKD-USD, MYR-USD and so on. Pegs lead to a situation in which certain nodes,
+in fact primarily coupled to EUR or USD, are effectively connected to less important
+currencies as DKK or HKD. This is why HKD has a larger multiplicity in Figure 5(a)
+than EUR, and a few other nodes have significant degrees even if they do not belong
+to the group of major currencies (BHD is a striking example here). Without this effect
+both USD and EUR would have a much larger value of K.
+In order to avoid this spurious phenomenon of absorbing a fraction of centrality of
+the major currencies by their satellites, we single out only those exchange rates GBP/X
+
+10
+
+(a)
+
+BRL
+TRY
+CLP
+PHP
+COP
+MYR
+MXN
+
+RON
+
+base: GBP
+
+SDD
+TTD
+DZD
+
+BGN
+
+LKR
+ARS
+
+PEN
+USD
+CNY
+
+GHS
+
+RUB
+
+PKR
+VEB
+
+HNL
+
+JMD
+EGP
+
+TWD
+
+LBP
+
+KRW
+
+THB
+SGD
+
+JPY
+
+ZMK
+
+FJD
+
+HKD
+
+INR
+
+IDR
+KWD
+ILS
+AED
+TND
+
+BHD
+JOD
+
+PLN
+
+CAD
+ISK
+MAD
+
+SAR
+HUF
+NZD
+AUD
+
+CYP
+CHF
+
+ZAR
+CZK
+
+DKK
+SKK
+
+EUR
+
+XAU
+
+XAG
+
+XAF
+SEK
+
+NOK
+
+XPT
+
+PHP
+
+(b)
+
+INR
+
+base: GBP
+
+MYR
+COP
+
+USD, EUR removed
+HKD
+
+JOD
+THB
+NZD
+
+SGD
+
+KRW
+
+TWD
+
+GBP
+
+SAR
+CAD
+AUD
+
+IDR
+
+BHD
+
+JPY
+XAG
+
+ILS
+XAU
+AED
+
+MXN
+
+ZAR
+XPT
+
+NOK
+
+CLP
+
+ARS
+KWD
+
+SEK
+PLN
+VEB
+PEN
+
+CNY
+
+HUF
+DZD
+
+ISK
+
+RUB
+
+GHS
+
+SDD
+
+XAF
+TTD
+HNL
+
+LBP
+
+BRL
+CYP
+
+MAD
+
+DKK
+JMD
+ZMK
+
+SKK
+TRY
+
+FJD
+CZK
+
+PKR
+TND
+
+EGP
+LKR
+
+BGN
+RON
+
+Fig. 5 Minimal spanning trees for the GBP-based network of exchange rates for the original
+data (a) and for the data after removing contribution of the GBP/USD and GBP/EUR exchange rates (b). Entire period 1999-2008 is considered. Line widths are proportional to the
+correlation coeﬃcients for the corresponding exchange rates. Anticorrelated nodes are denoted
+by green edges.
+
+11
+
+BRL
+
+TRY
+CLP
+
+KRW
+MXN
+
+TWD
+SDD
+
+GHS
+RUB
+
+THB
+
+PHP
+
+FJD
+
+PKR
+ZMK
+
+IDR
+
+USD
+
+PEN
+
+SGD
+
+INR
+
+JMD
+
+ILS
+
+LKR
+DZD COP
+
+RON
+
+EGP
+
+JPY
+TND
+
+CAD
+
+ISK
+MAD
+
+NZD
+AUD
+ZAR
+
+CHF
+NOK
+
+XAU
+
+EUR
+
+SEK
+
+base: GBP
+
+CZK
+
+PLN
+
+Fig. 6 Minimal spanning tree for the GBP-based network of 41 exchange rates GBP/X for
+a set of independent currencies X. Line widths are proportional to the correlation coeﬃcients
+for the corresponding pairs of the exchange rates.
+
+which involve independent currencies, i.e. such currencies which, in the analyzed interval of time, were not explicitely pegged to other monetary units. Figure 6 shows the
+corresponding MST comprising 41 nodes. Now the tree looks different. The USD node
+is even more central (K = 19, direct links with 40% of nodes) than for the full set of
+currencies in Figure 5(a), and it is followed by EUR (K = 5), SGD (K = 5) and AUD
+(K = 4). This better reflects the role played by USD, EUR and AUD in the world’s
+currency system. SGD, which is here the least important unit, owes its localization in
+the MST to its specific basket-oriented regulation.
+Figures 5(a) and 6 show that the currency network has a hierarchical structure,
+which supports earlier findings [7, 8, 12]. These graphs, however, do not allow to observe
+the clustered structure discussed in the previous section. However, by neglecting the
+influence of the GBP/USD and GBP/EUR exchange rates (Eq.(4)), most clusters can
+easily be revealed. Indeed, in Figure 5(b) the cluster of AUD-CAD-NZD, as well as
+the ones of the Maghreb currencies, the Central European currencies, the Middle East
+currencies, the South-East Asian currencies, and the precious metals are identifiable.
+The hierarchical structure of the original network is lost here, however: the incomplete
+network of Figure 5(b) resembles rather a random graph.
+In order to be able to say something more on the MST topology, we calculate
+a distribution of the node degrees for the GBP-based network from Figure 5(a). We
+
+12
+
+1
+
+cumulative distribution
+
+base:
+EUR (α = 1.49)
+USD (α = 1.96)
+HKD (α = 1.89)
+GBP (α = 1.55)
+
+0.1
+
+0.01
+1
+
+2
+
+K
+
+5
+
+10
+
+20
+
+3.0
+
+USD
+
+1.5
+
+VEB
+XAF
+XAG
+XAU
+XPT
+ZAR
+ZMK
+
+HKD
+HNL
+HUF
+IDR
+ILS
+INR
+ISK
+JMD
+JOD
+JPY
+KRW
+KWD
+LBP
+LKR
+MAD
+MXN
+MYR
+NOK
+NZD
+PEN
+PHP
+PKR
+PLN
+RON
+RUB
+SAR
+SDD
+SEK
+SGD
+SKK
+THB
+TND
+TRY
+TTD
+TWD
+
+AED
+ARS
+AUD
+BGN
+BHD
+BRL
+CAD
+CHF
+CLP
+
+α
+
+2.0
+
+COP
+CYP
+CZK
+DKK
+DZD
+EGP
+EUR
+FJD
+GBP
+GHS
+
+CNY
+
+2.5
+
+1.0
+
+0.5
+
+0.0
+
+currency
+
+Fig. 7 (Top) Cumulative distributions of the MST node degrees for exemplary representations
+of the currency network together with the ﬁtted values of scaling exponent α. (Bottom) Scaling
+exponents α ﬁtted to the cumulative distributions of the node degrees for all 63 representations
+of the network.
+
+13
+
+count the number of nodes of the same degree and calculate the cumulative distribution
+function for this quantity. This empirical distribution resembles the scale-free powerlaw behaviour, thus we attempt to fit the power function and evaluate the scaling
+exponent α. For the GBP-based MST α = 1.55 ± 0.16.
+It is worthwhile to compare the scaling exponents for the cumulative distributions
+of the node degrees using different base currencies. Typically, the scaling relations
+exhibited by the c.d.f.s are of statistical significance and the corresponding scaling
+exponents can be estimated with only a small error [12]. The exponents have values in
+the range 1.37 ≤ α ≤ 1.96 but a vast majority of values do not exceed 1.66. Only for five
+base currencies α > 1.66: this happens for USD (1.96 ± 0.24), CNY (1.93 ± 0.19), and
+HKD (1.89 ± 0.27). In all these cases the scaling quality is also poor, as the significant
+statistical errors indicate. Both HKD and CNY are tied to USD and therefore they
+mimic its evolution. Moreover, they develop a small collective eigenvalue λB
+1 (Figure
+2), which is also a property inherited from the US dollar. This result suggests that the
+base currencies with high values of α are associated with the network representations
+that are more random than typical hierarchical networks. It occurs that the exponent
+averaged over all base currencies ᾱ = 1.53 ± 0.11, in agreement with the theoretically
+derived value of 1.61 for a hierarchical network of the same size [20, 21]. The above
+results are displayed in Figure 7.
+
+2.6 Temporal stability of the market structure
+Earlier works showed that the currency networks, expressed by the MST graphs, are
+sensitive to current market situation - for instance, to which currencies are most active
+at the moment [3, 8]. However, despite this fact a majority of network edges were
+reported to be rather stable.
+As an example of the MST variability, in Figure 8 we present the exemplary GBPbased trees for the two disjoint and mutually distant time intervals of three years:
+01/1999-12/2001 (Interval 1) and 07/2005-06/2008 (Interval 2). To eliminate the spurious wandering of nodes between the major currencies and their satellites, we restricted
+the network to 41 independent exchange rates (as it was the case for the entire period
+in Figure 6). In fact, the structure of MSTs in both panels of Figure 5 is different.
+In the more recent Interval 2 (Figure 5(b)) the USD node has smaller centrality than
+in the earlier Interval 1 (Figure 5(a)); its degree dropped from K = 21 to K = 17.
+In addition, the tree in Figure 5(b) has more extended branches than its counterpart
+in Figure 5(a). However, neither of the trees lacks the overall hierarchical structure,
+which seems to be a stable property of the network under study.
+Figure 9 shows cumulative distributions of the node degrees for two different network representations and for the same two intervals of time. A difference of the MST
+structures can be seen for both Bs. For Interval 1 the cumulative distribution has fatter
+tails while for Interval 2 the c.d.f. decreases more quickly and develops thinner tails. It
+is debatable whether we observe any scaling behaviour of the tails, but, nevertheless,
+in order to describe the different shapes of the distributions we calculate the optimal
+scaling exponents. For Interval 1 we obtain αGBP = 1.50 and αEUR = 1.42, while
+the analogous numbers for Interval 2 are equal to 1.54 and 1.59, respectively. In both
+representations there is a clear increase of the scaling exponent’s value.
+Quantitative characterization of the changes in the MST network structure with
+time can also be possible by observing the temporal variability of the largest eigenvalue
+
+14
+
+NZD
+
+(a)
+
+XAU
+AUD
+
+CAD
+
+TRY
+
+01/1999-12/2001
+CLP
+BRL
+ILS
+ZAR
+ISK
+
+GHS
+
+RUB
+FJD
+
+CHF
+RON
+
+PKR
+JMD
+USD
+
+MXN
+
+MAD
+SDD
+
+PEN
+
+EUR
+
+INR
+
+CZK
+
+PHP
+
+PLN
+
+DZD
+
+EGP
+COP LKR
+TND
+
+SEK
+
+TWD
+
+KRW
+
+NOK
+
+ZMK
+SGD
+THB
+IDR
+
+base: GBP
+
+JPY
+
+THB
+
+(b)
+
+KRW
+
+SGD
+GHS
+INR
+
+TWD
+PKR
+
+DZD
+
+ILS
+
+LKR
+ZMK
+USD
+RUB
+
+FJD
+CAD
+
+JMD
+
+07/2005-06/2008
+
+SDD
+PEN
+EGP
+
+COP
+
+PHP
+MXN
+TND
+ZAR
+
+IDR
+CLP
+BRL
+
+TRY
+
+MAD
+AUD
+
+ISK
+
+SEK
+JPY
+CHF
+
+NZD
+
+EUR
+NOK
+XAU
+RON
+CZK
+
+base: GBP
+PLN
+
+Fig. 8 Minimal spanning trees for the GBP-based network for two diﬀerent time intervals: the
+ﬁrst three years (a) and the last three years (b) of the period spanned by our data. Line widths
+are proportional to the correlation coeﬃcients for the corresponding pairs of the exchange rates.
+
+15
+
+1
+
+cumulative distribution
+
+01/1999-12/2001 (α = 1.50)
+07/2005-06/2008 (α = 1.54)
+
+0.1
+
+base: GBP
+
+0.01
+1
+
+2
+
+K
+
+5
+
+10
+
+20
+
+1
+
+cumulative distribution
+
+01/1999-12/2001 (α = 1.42)
+07/2005-06/2008 (α = 1.59)
+
+0.1
+
+base: EUR
+
+0.01
+1
+
+2
+
+K
+
+5
+
+10
+
+20
+
+Fig. 9 Cumulative distributions of node degrees K for the GBP-based (top) and the EURbased (bottom) minimal spanning trees for two three-years-long time intervals: 01/199912/2001 (black) and 07/2005-06/2008 (red). An attempt of ﬁtting power functions to these
+distributions is also presented (denoted by dashed lines).
+
+λB
+1 for different choices of B. We divide our 9.5-years-long time interval into shorter
+annual periods of approximately 250 trading days (with an exception for the last period
+of 2008, which is only 6 months long) and calculate the correlation matrices CB and
+their eigenspectra for each period and for each base currency. Results are shown in
+Figure 10. While the upper edge of the eigenvalue ladders remains almost unchanged
+over time with λB
+1 for one or more base currencies approaching 60, their lower ends
+reveal a systematic tendency to increase from λmin
+≃ 10 in 1999 to λmin
+≃ 16 in
+1
+1
+2008. This means that from the perspective of USD, occupying one of the lowermost
+
+16
+
+USD (t) and λEUR (t)
+Fig. 10 Annual changes of the largest eigenvalue λB
+1 ladder. Positions of λ1
+1
+are distinguished and connected by dashed lines.
+
+rungs of the ladder, the global market is nowadays more collective than it used to be
+7-9 years ago. This, in turn, means that the set of currencies which previously were
+tightly related to the US dollar, now seems to be less populated. Interestingly, although
+USD permanently remains at the bottom of the ladder, sometimes it loses its extreme
+position to the advantage of other currencies like HKD or SGD. However, even then
+USD remains the currency with the lowest λ1 among all the major ones from Basket 1.
+Since during the analyzed period both λUSD
+and λEUR
+significantly changed their
+1
+1
+values indicating a lack of stability of the network in different representations (Figure
+10), it is worthwhile to inspect the behaviour of the largest eigenvalue for these and
+other base currencies with a better temporal resolution. We improved it by applying a
+moving window of length of about 6 months (126 trading days) which was shifted by
+1 month (21 trading days).
+The corresponding behaviour of λB
+1 (t) for 15 exemplary currencies representing
+different baskets is presented in three panels of Figure 11. The most interesting obser(t) gradually decreases (Figure 11(a)). This
+(t) − λUSD
+vation is that a distance λEUR
+1
+1
+, which
+effect is caused predominantly by a systematically decreasing value of λEUR
+1
+from a magnitude of 38 in 2000 reached a level of 23 at the end of 2007. At the same
+time λUSD
+, after a significant increase between 2002 and 2004, presently oscillates
+1
+without any systematic trend between 14 and 20. On the other hand, the two other
+European major currencies: CHF and GBP, while sometimes closely mimicking the
+transient short-term behaviour of λEUR
+(t), do not follow its long term evolution. JPY
+1
+
+17
+
+(a)
+
+(b)
+60
+
+60
+
+50
+
+50
+
+XAU
+
+ZAR
+
+JPY
+
+40
+
+40
+
+PLN
+
+λ1
+
+λ1
+
+CHF
+
+30
+
+30
+MXN
+
+GBP
+
+EUR
+
+20
+
+20
+USD
+
+10
+
+SGD
+
+10
+
+Basket 1
+0
+
+Basket 2
+0
+
+1999 2000 2001 2002 2003 2004 2005 2006 2007 2008
+
+1999 2000 2001 2002 2003 2004 2005 2006 2007 2008
+
+time
+
+time
+
+(c)
+60
+GHS
+
+50
+40
+
+λ1
+
+BRL
+
+MAD
+
+30
+20
+10
+0
+
+PKR
+
+CNY
+
+Baskets 3&4
+
+1999 2000 2001 2002 2003 2004 2005 2006 2007 2008
+
+time
+
+Fig. 11 Time dependence of λB
+1 for exemplary major currencies from Basket 1 (a), other
+liquid currencies from Basket 2 (b), and illiquid currencies representing Baskets 3 and 4 (c).
+Eigenspectra of correlation matrices were calculated for each position of a moving window of
+length of 6 months.
+
+is a rather different case: after a decreasing trend of λJPY
+between 1999 and 2003 and
+1
+after a period of stabilization in 2004-2006, JPY now displays strong oscillations which
+elevated its largest eigenvalue to a level typical for less influential currencies (Baskets
+2-4) that are decoupled from the global market. Figures 11(b)-(c) show λB
+1 for a few
+liquid and illiquid currencies from Baskets 2, 3 and 4. A characteristic property of this
+group of currencies is strong short-term variability of the largest eigenvalue which can
+be seen for almost all choices of B except SGD and CNY.
+
+3 Summary
+We presented outcomes of a study of the FX network structure based on daily data collected for the interval 01/1999-06/2008. These outcomes allow us to draw the following
+principal conclusions:
+(i) The currency network structure depends on a choice of base currency and the
+associated reference frame. On one hand, a network based on a currency which is decoupled from the rest of the currencies and display an independent behaviour shows a
+highly correlated, rigid structure. On the other hand, a network viewed from the USD
+perspective (or the perspectives of its satellites) has a richer structure with less corre-
+
+18
+
+lations and more noise. For typical currencies the networks has intermediate structure
+that can be classified between these two extremes. However, for a vast majority of currencies, the MST graphs share the same topology quantified in terms of the node degree
+distribution. We found that these networks show a signature of scale free networks. An
+extreme opposite case are the USD-based, CNY-based and HKD-based networks which
+have topology deviating from scale-free in direction of a random network.
+(ii) From a perspective of a typical currency, the FX network is dominated by two
+strong clusters of nodes related to USD and to EUR. The former comprises usually
+the Latin American and the South-East Asian currencies, while the latter consists of
+the European and the Maghreb ones. There are also other smaller groups of nodes
+forming clusters related to geographical or economical factors, but normally they are
+masked by the dominating two clusters and can be seen in full detail only after removing the USD and EUR nodes from the network. Among those secondary clusters we
+distinguish the cluster of Middle East currencies, the cluster of Canadian, Australian
+and New Zealand dollars (sometimes accompanied by the South African rand, which
+couples currencies involved in trade of various commodities), the cluster of Central
+European currencies, and the cluster of precious metals. Weaker links couple also the
+Scandinavian currencies, the Latin American currencies, and the South-East Asian
+currencies.
+(iii) We found that the FX network is not stable in time. Over a few past years the
+currency network underwent a significant change of its structure with the main activity
+observed in the neighbourhood of USD and EUR. The USD-related cluster released its
+ties, allowing some nodes to acquire more independence. At the same time the USDbased network becomes more correlated, what is a different manifestation of the same
+phenomenon. On the other hand, the EUR node now attracts more nodes than before
+and, complimentarily, the EUR-based network reveals decreasing strength of couplings.
+This might be a quantitative evidence that after a transient period in which the FX
+market actors treated the new European currency with a little of suspense, now more
+and more of them start to rely upon it. These findings open an interesting topic for
+future research.
+
+References
+1. Y. Aiba, N. Hatano, H. Takayasu, K. Marumo, T. Shimizu, Triangular arbitrage as an
+interaction among foreign exchange rates, Physica A 310, 467-479 (2002)
+2. Sauder
+School
+of
+Business,
+Paciﬁc
+Exchange
+Rate
+System,
+http://fx.sauder.ubc.ca/data.html (2008)
+3. M. McDonald, O. Suleman, S. Williams, S. Howison, N.F. Johnson, Detecting a currency’s
+dominance or dependence using foreign exchange network trees, Phys.Rev.E 72, 046106
+(2005)
+4. V. Plerou, P. Gopikrishnan, B. Rosenow, L.A.N. Amaral, T. Guhr, H.E. Stanley, Random
+matrix approach to cross correlations in ﬁnancial data, Phys. Rev. E 65, 066126 (2002)
+5. A. Utsugi, K. Ino, M. Oshikawa, Random matrix theory analysis of cross correlations in
+ﬁnancial markets, Phys. Rev. E 70, 026110 (2004)
+6. D.-H. Kim, H. Jeong, Systematic analysis of group identiﬁcation in stock markets,
+Phys. Rev. E 72, 046133 (2005)
+7. T. Mizuno, H. Takayasu, M. Takayasu, Correlation networks among currencies, Physica A
+364, 336-342 (2006)
+8. M.J. Naylor, L.C. Rose, B.J.Moyle, Topology of foreign exchange markets using hierarchical
+structure methods, Physica A 382, 199-208 (2007)
+9. S. Drożdż, A.Z. Górski, J. Kwapień, World currency exchange rate cross-correlations,
+Eur. Phys. J. B 58, 499 (2007)
+
+19
+10. P. Sieczka, J.A. Holyst, Correlations in commodity markets, preprint arXiv:0803.3884
+(2008)
+11. A.M. Sengupta, P. Mitra, Distributions of singular values for some random matrices,
+Phys. Rev. E 60, 3389 (1999)
+12. A.Z. Górski, S. Drożdż, J. Kwapień, Scale free eﬀects in world currency exchange network,
+Eur. Phys. J. B (2008)
+13. R.N. Mantegna, Hierarchical structure in ﬁnancial markets, Eur. Phys. J. B 11, 193-197
+(1999)
+14. G. Bonanno, F. Lillo, R.N. Mantegna, High-frequency cross-correlation in a set of stocks,
+Quant. Finance 1, 96-104 (2001)
+15. G. Bonanno, G. Caldarelli, F. Lillo, R.N. Mantegna, Topology of correlation-based minimal
+spanning trees in real and model markets, Phys. Rev. E 68, 046130 (2003)
+16. G. Bonanno, G. Caldarelli, F. Lillo, C. Miccichè, N. Vandewalle, R.N. Mantegna, Networks
+of equities in ﬁnancial markets, Eur. Phys. J. B 38, 363-371 (2004)
+17. J.-P. Onnela, K. Kaski, J. Kertesz, Clustering and information in correlation based ﬁnancial networks, Eur. Phys. J. B 38, 353-362 (2004)
+18. M. Tumminello, C. Coronnello, F. Lillo, S. Miccichè, R.N. Mantegna, Spanning Trees and
+bootstrap reliability estimation in correlation based networks, Int. J. Bif. Chaos 17, 23192329 (2007)
+19. R. Coelho, P. Richmond, S. Hutzler, B. Lucey, Study of the correlations between stocks
+of diﬀerent markets, preprint arXiv:0710.5140 (2007)
+20. E. Ravasz, A.-L. Barabási, Hierarchical organization in complex networks, Phys. Rev. E
+67, 026112 (2003)
+21. J.-D. Noh, Exact scaling properties of a hierarchical network model, Phys. Rev. E 67,
+045103(R) (2003)
+22. S. Drożdż, J. Kwapień, F. Grümmer, J. Speth, Are the contemporary ﬁnancial ﬂuctuations
+sooner converging to normal?, Acta Phys. Pol. B 34, 4293-4306 (2003)
+23. S. Drożdż, M. Forczek, J. Kwapień, P. Oświȩcimka, R. Rak, Stock market return distributions: from past to present, Physica A 383, 59-64 (2007)
+24. J. Kwapień, S. Drożdż, J. Speth, Time scales involved in market emergence, Physica A
+337, 231-242 (2004)
+
+View publication stats
+
+
